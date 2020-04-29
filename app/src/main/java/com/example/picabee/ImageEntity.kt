@@ -1,15 +1,20 @@
 package com.example.picabee
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 data class ImageEntity(
     val hits: List<Hit>,
     val total: Int,
     val totalHits: Int
 )
 
+@Entity(tableName = "image_hit")
 data class Hit(
     val comments: Int,
     val downloads: Int,
     val favorites: Int,
+    @PrimaryKey
     val id: Int,
     val imageHeight: Int,
     val imageSize: Int,
