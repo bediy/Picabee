@@ -1,8 +1,8 @@
-package com.example.picabee
+package com.example.picabee.api
 
-import kotlinx.coroutines.Deferred
+import com.example.picabee.entity.ImageEntity
+import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface PixabayService {
@@ -14,7 +14,8 @@ interface PixabayService {
     fun searchImageAsync(
         @Query("key") key: String = KEY,
         @Query("q") q: String,
-        @Query("image_type") type: String = "photo"
-    ): Deferred<ImageEntity>
+        @Query("image_type") type: String = "photo",
+        @Query("page") page: Int = 1
+    ): Call<ImageEntity>
 }
 

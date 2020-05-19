@@ -2,8 +2,7 @@ package com.example.picabee.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.picabee.HomeRepository
-import com.example.picabee.HomeViewModel
+import com.example.picabee.repository.HomeRepository
 
 class HomeViewModelFactory(private val homeRepository: HomeRepository)
     : ViewModelProvider.NewInstanceFactory() {

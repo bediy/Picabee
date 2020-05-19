@@ -1,7 +1,7 @@
 package com.example.picabee.utils
 
 import android.content.Context
-import com.example.picabee.HomeRepository
+import com.example.picabee.repository.HomeRepository
 import com.example.picabee.db.AppDatabase
 import com.example.picabee.viewmodel.HomeViewModelFactory
 
