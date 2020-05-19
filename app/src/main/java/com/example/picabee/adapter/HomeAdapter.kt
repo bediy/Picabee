@@ -5,12 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.picabee.Hit
 import com.example.picabee.R
+import com.example.picabee.entity.Hit
 
 object HomeDiffCallback : DiffUtil.ItemCallback<Hit>() {
     override fun areItemsTheSame(oldItem: Hit, newItem: Hit): Boolean {
@@ -22,7 +22,7 @@ object HomeDiffCallback : DiffUtil.ItemCallback<Hit>() {
     }
 }
 
-class HomeAdapter : ListAdapter<Hit, HomeAdapter.HomeViewHolder>(HomeDiffCallback) {
+class HomeAdapter : PagedListAdapter<Hit, HomeAdapter.HomeViewHolder>(HomeDiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
         return LayoutInflater
@@ -32,7 +32,7 @@ class HomeAdapter : ListAdapter<Hit, HomeAdapter.HomeViewHolder>(HomeDiffCallbac
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
-        getItem(position).apply {
+        getItem(position)?.apply {
             holder.likesTv.text = likes.toString()
             holder.favoritesTv.text = favorites.toString()
             holder.imageView.layoutParams.height = webformatHeight
