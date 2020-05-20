@@ -1,6 +1,7 @@
 package com.example.picabee.ui
 
 import android.os.Bundle
+import android.view.Window
 import android.view.inputmethod.EditorInfo
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -27,7 +28,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
+
+        supportActionBar?.hide();
 
         adapter = HomeAdapter()
         recyclerView.adapter = adapter
